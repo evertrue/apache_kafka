@@ -11,11 +11,7 @@ platforms:
   - name: ubuntu-14.04
     driver_config:
       box: 'ubuntu/trusty64'
-    attributes:
-      zookeeper:
-        service_style: "upstart"
-      apache_kafka:
-        service_style: "upstart"
+
   - name: debian-7.8
     driver_config:
       box: 'chef/debian-7.8'
@@ -40,3 +36,6 @@ suites:
       apache_kafka:
         jmx:
           port: 9093
+        service_style: "upstart"
+      zookeeper:
+        service_style: "upstart"
