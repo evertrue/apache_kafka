@@ -1,12 +1,3 @@
 source "https://rubygems.org"
 
-gem "rake"
-gem "berkshelf"
-gem "strainer"
-gem "rubocop"
-gem "chefspec"
-gem "foodcritic"
-gem "test-kitchen"
-gem "kitchen-vagrant"
 gem "thor-scmversion"
-gem "serverspec"
