@@ -1,6 +1,8 @@
 ---
 driver:
   name: vagrant
+  customize:
+    memory: 2048
 
 provisioner:
   name: chef_zero
@@ -9,8 +11,6 @@ platforms:
   - name: ubuntu-14.04
     driver_config:
       box: 'ubuntu/trusty64'
-      customize:
-        memory: 2048
     attributes:
       zookeeper:
         service_style: "upstart"
@@ -19,8 +19,6 @@ platforms:
   - name: debian-7.8
     driver_config:
       box: 'chef/debian-7.8'
-      customize:
-        memory: 2048
     run_list:
       - recipe[runit]
     attributes:
