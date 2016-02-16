@@ -13,4 +13,4 @@ version          IO.read(File.join(File.dirname(__FILE__), "VERSION")) rescue "0
 end
 
 depends "java"
-depends "runit"
+depends "runit", "~> 1.6"
