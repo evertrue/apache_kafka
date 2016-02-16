@@ -1,21 +1,21 @@
 # Apache Kafka Cookbook
 
-Install and configure apache kafka 0.8.2.1.
+Install and configure Apache Kafka 0.8.2.1.
 
-Default installation assumes a local zookeeper instance (see [SimpleFinance/chef-zookeeper](https://github.com/SimpleFinance/chef-zookeeper)).
+Default installation assumes a local ZooKeeper instance (see [SimpleFinance/chef-zookeeper](https://github.com/SimpleFinance/chef-zookeeper)).
 
 Based off the work of [Federico Gimenez Nieto](https://github.com/fgimenez/kafka-cookbook)
 
 ## Cookbooks
 
-* `apache_kafka::default`
+* `et_apache_kafka::default`
     - Full default install
-* `apache_kafka::install`
+* `et_apache_kafka::install`
     - Install the application, but do not start
     - Useful for wrapper cookbooks that want custom configurations before starting
-* `apache_kafka::configure`
+* `et_apache_kafka::configure`
     - Create the broker configs
-* `apache_kafka::service`
+* `et_apache_kafka::service`
     - Create service upstart scripts
 
 ## Usage

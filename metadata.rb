@@ -1,6 +1,6 @@
 # encoding: UTF-8
 # rubocop:disable SingleSpaceBeforeFirstArg, LineLength
-name             "apache_kafka"
+name             "et_apache_kafka"
 maintainer       "Daniel Couture"
 maintainer_email "mathyourlife@gmail.com"
 license          "Apache-2.0"

@@ -1,5 +1,5 @@
 # encoding: UTF-8
-# Cookbook Name:: apache_kafka
+# Cookbook Name:: et_apache_kafka
 # Recipe:: service
 #
 # based on the work by Simple Finance Technology Corp.
@@ -18,7 +18,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-version_tag = "kafka_#{node['apache_kafka']['scala_version']}-#{node['apache_kafka']['version']}"
+version_tag = "kafka_#{node['et_apache_kafka']['scala_version']}-#{node['et_apache_kafka']['version']}"
 
 template "/etc/default/kafka" do
   source "kafka_env.erb"
@@ -26,22 +26,22 @@ template "/etc/default/kafka" do
   action :create
   mode "0644"
   variables(
-    :kafka_home => ::File.join(node["apache_kafka"]["install_dir"], version_tag),
-    :kafka_config => node["apache_kafka"]["config_dir"],
-    :kafka_bin => node["apache_kafka"]["bin_dir"],
-    :kafka_user => node["apache_kafka"]["user"],
-    :kafka_log_dir => node["apache_kafka"]["log_dir"],
-    :scala_version => node["apache_kafka"]["scala_version"],
-    :kafka_heap_opts => node["apache_kafka"]["kafka_heap_opts"],
-    :kafka_jvm_performance_opts => node["apache_kafka"]["kafka_jvm_performance_opts"],
-    :kafka_opts => node["apache_kafka"]["kafka_opts"],
-    :jmx_port => node["apache_kafka"]["jmx"]["port"],
-    :jmx_opts => node["apache_kafka"]["jmx"]["opts"]
+    :kafka_home => ::File.join(node["et_apache_kafka"]["install_dir"], version_tag),
+    :kafka_config => node["et_apache_kafka"]["config_dir"],
+    :kafka_bin => node["et_apache_kafka"]["bin_dir"],
+    :kafka_user => node["et_apache_kafka"]["user"],
+    :kafka_log_dir => node["et_apache_kafka"]["log_dir"],
+    :scala_version => node["et_apache_kafka"]["scala_version"],
+    :kafka_heap_opts => node["et_apache_kafka"]["kafka_heap_opts"],
+    :kafka_jvm_performance_opts => node["et_apache_kafka"]["kafka_jvm_performance_opts"],
+    :kafka_opts => node["et_apache_kafka"]["kafka_opts"],
+    :jmx_port => node["et_apache_kafka"]["jmx"]["port"],
+    :jmx_opts => node["et_apache_kafka"]["jmx"]["opts"]
   )
   notifies :restart, "service[kafka]", :delayed
 end
 
-case node["apache_kafka"]["service_style"]
+case node["et_apache_kafka"]["service_style"]
 when "upstart"
   template "/etc/init/kafka.conf" do
     source "kafka.init.erb"
@@ -50,7 +50,7 @@ when "upstart"
     action :create
     mode "0644"
     variables(
-      :kafka_umask => sprintf("%#03o", node["apache_kafka"]["umask"])
+      :kafka_umask => sprintf("%#03o", node["et_apache_kafka"]["umask"])
     )
     notifies :restart, "service[kafka]", :delayed
   end

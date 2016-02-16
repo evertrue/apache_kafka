@@ -1,8 +1,12 @@
 # encoding: UTF-8
-# Cookbook Name:: apache_kafka
+# Cookbook Name:: et_apache_kafka
 # Recipe:: default
 #
 
-include_recipe "apache_kafka::install"
-include_recipe "apache_kafka::configure"
-include_recipe "apache_kafka::service"
+%w(
+  install
+  configure
+  service
+).each do |r|
+  include_recipe "et_apache_kafka::#{r}"
+end

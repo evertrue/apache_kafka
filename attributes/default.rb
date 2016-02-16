@@ -1,36 +1,36 @@
 # encoding: UTF-8
-# Cookbook Name:: apache_kafka
+# Cookbook Name:: et_apache_kafka
 # Attribute:: default
 #
 
-default["apache_kafka"]["version"] = "0.8.2.1"
-default["apache_kafka"]["scala_version"] = "2.11"
-default["apache_kafka"]["mirror"] = "http://apache.mirrors.tds.net/kafka"
+default["et_apache_kafka"]["version"] = "0.8.2.1"
+default["et_apache_kafka"]["scala_version"] = "2.11"
+default["et_apache_kafka"]["mirror"] = "http://apache.mirrors.tds.net/kafka"
 # shasum -a 256 /tmp/kitchen/cache/kafka_2.11-0.8.2.1.tgz
-default["apache_kafka"]["checksum"]["0.8.2.1"] = "9fb84546149b477bdbf167da8ca880a2c1199aeb24b2d5cd17aac0973ba4e54b"
+default["et_apache_kafka"]["checksum"]["0.8.2.1"] = "9fb84546149b477bdbf167da8ca880a2c1199aeb24b2d5cd17aac0973ba4e54b"
 
-default["apache_kafka"]["user"] = "kafka"
-default["apache_kafka"]["setup_user"] = true
+default["et_apache_kafka"]["user"] = "kafka"
+default["et_apache_kafka"]["setup_user"] = true
 
 # heap options are set low to allow for local development
-default["apache_kafka"]["kafka_heap_opts"] = "-Xmx512M -Xms256M"
-default["apache_kafka"]["kafka_jvm_performance_opts"] = "-server -XX:+UseCompressedOops -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC -Djava.awt.headless=true"
-default["apache_kafka"]["kafka_opts"] = ""
+default["et_apache_kafka"]["kafka_heap_opts"] = "-Xmx512M -Xms256M"
+default["et_apache_kafka"]["kafka_jvm_performance_opts"] = "-server -XX:+UseCompressedOops -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+CMSScavengeBeforeRemark -XX:+DisableExplicitGC -Djava.awt.headless=true"
+default["et_apache_kafka"]["kafka_opts"] = ""
 
-default["apache_kafka"]["jmx"]["port"] = ""
-default["apache_kafka"]["jmx"]["opts"] = "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
+default["et_apache_kafka"]["jmx"]["port"] = ""
+default["et_apache_kafka"]["jmx"]["opts"] = "-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false"
 
-default["apache_kafka"]["install_java"] = true
+default["et_apache_kafka"]["install_java"] = true
 
-default["apache_kafka"]["install_dir"] = "/usr/local/kafka"
-default["apache_kafka"]["data_dir"] = "/var/log/kafka"
-default["apache_kafka"]["log_dir"] = "/var/log/kafka"
-default["apache_kafka"]["bin_dir"] = "/usr/local/kafka/bin"
-default["apache_kafka"]["config_dir"] = "/usr/local/kafka/config"
+default["et_apache_kafka"]["install_dir"] = "/usr/local/kafka"
+default["et_apache_kafka"]["data_dir"] = "/var/log/kafka"
+default["et_apache_kafka"]["log_dir"] = "/var/log/kafka"
+default["et_apache_kafka"]["bin_dir"] = "/usr/local/kafka/bin"
+default["et_apache_kafka"]["config_dir"] = "/usr/local/kafka/config"
 
-default["apache_kafka"]["service_style"] = "upstart"
+default["et_apache_kafka"]["service_style"] = "upstart"
 # Currently only for upstart, the umask for the kafka server process
-default["apache_kafka"]["umask"] = 007
+default["et_apache_kafka"]["umask"] = 007
 
 # Kafka configuration settings are detailed here.
 # https://kafka.apache.org/08/configuration.html
@@ -38,13 +38,13 @@ default["apache_kafka"]["umask"] = 007
 # by wrapper cookbooks.  All others are fixed at default levels.  This
 # allows wrapper cookbooks to override a value then subsequently remove
 # the override and allow the host to fall back to the default value.
-default["apache_kafka"]["broker.id"] = nil
-default["apache_kafka"]["port"] = 9092
-default["apache_kafka"]["zookeeper.connect"] = nil
+default["et_apache_kafka"]["broker.id"] = nil
+default["et_apache_kafka"]["port"] = 9092
+default["et_apache_kafka"]["zookeeper.connect"] = nil
 
 # Check in /var/log/kafka/server.log for invalid entries
 #
-default["apache_kafka"]["conf"]["server"] = {
+default["et_apache_kafka"]["conf"]["server"] = {
   "file" => "server.properties",
   "entries" => {
     ## Settings are set to defaults by kafka but can be optionally
@@ -57,7 +57,7 @@ default["apache_kafka"]["conf"]["server"] = {
   }
 }
 
-default["apache_kafka"]["conf"]["log4j"] = {
+default["et_apache_kafka"]["conf"]["log4j"] = {
   "file" => "log4j.properties",
   "entries" => {
     "log4j.additivity.kafka" => "false",

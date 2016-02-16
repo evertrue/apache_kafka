@@ -16,7 +16,7 @@ platforms:
     attributes:
       zookeeper:
         service_style: "runit"
-      apache_kafka:
+      et_apache_kafka:
         service_style: "init.d"
 
 suites:
@@ -25,11 +25,11 @@ suites:
       - recipe[apt]
       - recipe[zookeeper]
       - recipe[zookeeper::service]
-      - recipe[apache_kafka]
+      - recipe[et_apache_kafka]
     attributes:
       apt:
         compile_time_update: true
-      apache_kafka:
+      et_apache_kafka:
         jmx:
           port: 9093
         service_style: "upstart"
