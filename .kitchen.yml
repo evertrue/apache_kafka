@@ -13,8 +13,6 @@ platforms:
   - name: debian-7.8
     driver:
       box: 'chef/debian-7.8'
-    run_list:
-      - recipe[runit]
     attributes:
       zookeeper:
         service_style: "runit"
