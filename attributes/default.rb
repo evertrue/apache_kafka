@@ -40,7 +40,7 @@ default["et_apache_kafka"]["umask"] = 007
 # the override and allow the host to fall back to the default value.
 default["et_apache_kafka"]["broker.id"] = nil
 default["et_apache_kafka"]["port"] = 9092
-default["et_apache_kafka"]["zookeeper.connect"] = nil
+default["et_apache_kafka"]["zookeeper.connect"] = "localhost:2181/kafka"
 
 # Check in /var/log/kafka/server.log for invalid entries
 #

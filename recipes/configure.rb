@@ -32,9 +32,6 @@ end
 broker_id = node["et_apache_kafka"]["broker.id"]
 broker_id = 0 if broker_id.nil?
 
-zookeeper_connect = node["et_apache_kafka"]["zookeeper.connect"]
-zookeeper_connect = "localhost:2181" if zookeeper_connect.nil?
-
 template ::File.join(node["et_apache_kafka"]["config_dir"],
                      node["et_apache_kafka"]["conf"]["server"]["file"]) do
   source "properties/server.properties.erb"
@@ -44,7 +41,7 @@ template ::File.join(node["et_apache_kafka"]["config_dir"],
   variables(
     :broker_id => broker_id,
     :port => node["et_apache_kafka"]["port"],
-    :zookeeper_connect => zookeeper_connect,
+    :zookeeper_connect => node["et_apache_kafka"]["zookeeper.connect"],
     :log_dirs => node["et_apache_kafka"]["data_dir"],
     :entries => node["et_apache_kafka"]["conf"]["server"]["entries"]
   )
