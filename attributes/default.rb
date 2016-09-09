@@ -38,7 +38,6 @@ default["et_apache_kafka"]["umask"] = 0o07
 # by wrapper cookbooks.  All others are fixed at default levels.  This
 # allows wrapper cookbooks to override a value then subsequently remove
 # the override and allow the host to fall back to the default value.
-default["et_apache_kafka"]["broker.id"] = nil
 default["et_apache_kafka"]["port"] = 9092
 default["et_apache_kafka"]["zookeeper.connect"] = "localhost:2181/kafka"
 
