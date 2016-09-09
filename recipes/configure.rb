@@ -36,7 +36,6 @@ template ::File.join(node["et_apache_kafka"]["config_dir"],
   action :create
   mode "0644"
   variables(
-    :broker_id => node["et_apache_kafka"]["broker.id"] || 0,
     :port => node["et_apache_kafka"]["port"],
     :zookeeper_connect => node["et_apache_kafka"]["zookeeper.connect"],
     :log_dirs => node["et_apache_kafka"]["data_dir"],
